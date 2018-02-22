@@ -1,0 +1,21 @@
+#BlueJ class context
+comment0.target=Pesanan
+comment1.params=args
+comment1.target=void\ Pesanan(java.lang.String[])
+comment2.params=args
+comment2.target=double\ getBiaya(java.lang.String[])
+comment3.params=Customer
+comment3.target=java.lang.String\ getPelanggan(java.lang.String)
+comment4.params=args
+comment4.target=boolean\ getStatusDiproses(java.lang.String[])
+comment5.params=args
+comment5.target=boolean\ getStatusSelesai(java.lang.String[])
+comment6.params=biaya
+comment6.target=int\ setBiaya(double)
+comment7.params=args
+comment7.target=java.lang.String\ setPelanggan(java.lang.String[])
+comment8.params=args
+comment8.target=boolean\ setStatusDiproses(java.lang.String[])
+comment9.params=args
+comment9.target=boolean\ setStatusSelesai(java.lang.String[])
+numComments=10
