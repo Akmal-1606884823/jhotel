@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 #BlueJ class context
 comment0.target=Jhotel
 comment1.params=args
@@ -6,12 +5,3 @@ comment1.target=void\ main(java.lang.String[])
 comment2.params=
 comment2.target=Jhotel()
 numComments=3
-=======
-#BlueJ class context
-comment0.target=Jhotel
-comment1.params=args
-comment1.target=void\ main(java.lang.String[])
-comment2.params=
-comment2.target=Jhotel()
-numComments=3
->>>>>>> Modul 1 Revisi
