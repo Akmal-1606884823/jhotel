@@ -1,8 +1,10 @@
 public class DatabaseCustomer
 {
-   String list_customer;
+
+   private String[] list_customer;
    
-   public boolean addCustomer(String Customer){
+   public boolean addCustomer(Customer baru){
+
        
        return false;
     
@@ -14,7 +16,8 @@ public class DatabaseCustomer
     
     }
     
-   public String getCustomerDatabase(String[] args){
+
+   public String[] getCustomerDatabase(){
        
        return null;
     

@@ -1,9 +1,9 @@
 #BlueJ class context
 comment0.target=DatabaseCustomer
-comment1.params=Customer
-comment1.target=boolean\ addCustomer(java.lang.String)
+comment1.params=baru
+comment1.target=boolean\ addCustomer(Customer)
 comment2.params=id
 comment2.target=boolean\ removeCustomer(int)
-comment3.params=args
-comment3.target=java.lang.String\ getCustomerDatabase(java.lang.String[])
+comment3.params=
+comment3.target=java.lang.String[]\ getCustomerDatabase()
 numComments=4

@@ -1,54 +1,53 @@
 public class Pesanan
 {
-    double biaya;
-    String pelanggan = "customer";
-    String nama_pelanggan;
-    String Jenis_kamar;
-    boolean isdiproses;
-    boolean isselasai;
+    private double biaya;
+    private Customer pelanggan;
+    private String[] nama_pelanggan;
+    private String Jenis_kamar;
+    private boolean isdiproses;
+    private boolean isselasai;
     
-    public void Pesanan (String[] args){
-    
-        return ;
+    public Pesanan (){
+
     
     
     }
     
-    public double getBiaya (String[] args){
+
+    public double getBiaya (){
     
         return 0;
     }
     
-    public String getPelanggan(String Customer){
+    public Customer getPelanggan(){
+
     
         return null;
     }
-    
-    public boolean getStatusDiproses (String[] args){
-    
-        return false;
-    } 
-     public boolean getStatusSelesai (String[] args){
+
+    public boolean getStatusDiproses (){
     
         return false;
     } 
-    public int setBiaya (double biaya){
-        
-        return 0;    
-    }
-    public String setPelanggan(String[] args){
-    
-        return null;
-    }
-    public boolean setStatusDiproses(String[] args){
-        
-        return false;
-    
-    }
-    public boolean setStatusSelesai(String[] args){
+     public boolean getStatusSelesai (){
     
         return false;
+    } 
+    public void setBiaya (double biaya){
+        
+           
+    }
+    public void setPelanggan(Customer baru){
+    
+        
+    }
+    public void setStatusDiproses(boolean diproses){
+        
+    
+    }
+    public void setStatusSelesai(boolean diproses){
+    
+        
     }
     
 }
-

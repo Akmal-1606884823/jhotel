@@ -1,31 +1,38 @@
 public class Customer
 {
-     int id;
-     String nama;
+
+     protected int id;
+     protected String[] nama;
      
-     public void Customer(int id,String nama){
+     public Customer(int id,String[] nama){
          
-         return;
+         
      
         }
         
-     public int getid(String[] args){
+     public int getid(){
+
         return 0;
         
         }
         
-     public String get_Nama(String[] args){
+
+     public String[] getNama(){
+
         
         return null;
         }
+    
      public void setID(int id){
         
-         return;
+
+       }
+    
+      
+     public void setNama(String[] nama){
+        
         
        }
-      public void setNama(String nama){
-        return;
+    }
         
-        }
-        
-}
+

@@ -1,27 +1,32 @@
 public class DatabasePesanan
 {
-    String list_pesanan;
+
+    private String[] list_pesanan;
     
-    public boolean addPesanan(boolean Pesanan){
-    
-        return false;
-    }
-    
-    public boolean removePesanan(boolean Pesanan){
-    
-        return false;
-    
-    }
-    public boolean getPesanan(String Customer){
+    public boolean addPesanan(Pesanan baru){
+
     
         return false;
     }
-    public String getPesananDatabase (String[] args){
+    
+
+    public boolean removePesanan(Pesanan pesan){
+
+    
+        return false;
+    
+    }
+
+    public Pesanan getPesanan(Customer cust){
+    
+       return null; 
+    }
+    public String[] getPesananDatabase (){
     
         return null;
     }
-    public void pesananDibatalkan (boolean Pesanan){
+    public void pesananDibatalkan (Pesanan pesan){
     
-        return;
+
     }
 }

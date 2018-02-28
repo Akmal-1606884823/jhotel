@@ -1,13 +1,13 @@
 #BlueJ class context
 comment0.target=DatabasePesanan
-comment1.params=Pesanan
-comment1.target=boolean\ addPesanan(boolean)
-comment2.params=Pesanan
-comment2.target=boolean\ removePesanan(boolean)
-comment3.params=Customer
-comment3.target=boolean\ getPesanan(java.lang.String)
-comment4.params=args
-comment4.target=java.lang.String\ getPesananDatabase(java.lang.String[])
-comment5.params=Pesanan
-comment5.target=void\ pesananDibatalkan(boolean)
+comment1.params=baru
+comment1.target=boolean\ addPesanan(Pesanan)
+comment2.params=pesan
+comment2.target=boolean\ removePesanan(Pesanan)
+comment3.params=cust
+comment3.target=Pesanan\ getPesanan(Customer)
+comment4.params=
+comment4.target=java.lang.String[]\ getPesananDatabase()
+comment5.params=pesan
+comment5.target=void\ pesananDibatalkan(Pesanan)
 numComments=6
