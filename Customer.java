@@ -1,38 +1,75 @@
+/**
+ *   Class Customer.
+ *
+ * @author Akmal
+ * @version 1.2
+ * @since 1-3-18
+ */
+
 public class Customer
 {
 
      protected int id;
-     protected String[] nama;
+     protected String nama;
      
-     public Customer(int id,String[] nama){
+     /**
+      * Constructor untuk Customer
+      */
+     
+     public Customer(int id,String nama){
          
          
      
         }
+        
+        /**
+         * Menunjukkan Id
+         * @return int Untuk menampilkan id
+         */   
         
      public int getid(){
 
-        return 0;
+        return id;
         
         }
         
+        /**
+         * Menunjukkan nama
+         * @return String Untuk menampilkan nama
+         */   
+        
 
-     public String[] getNama(){
+     public String getNama(){
 
         
-        return null;
+        return nama;
         }
+        
+        /**
+         * Menetapkan Id
+         * @param id Untuk menetapkan id
+         */   
     
      public void setID(int id){
         
+         this.id = id;
 
        }
     
+        /**
+         * Menetapkan nama
+         * @param nama Untuk menetapkan nama
+         */  
       
-     public void setNama(String[] nama){
+     public void setNama(String nama){
         
-        
+        this.nama = nama;
        }
+       
+     public void printData(){
+    
+    
+     }
     }
         
 
