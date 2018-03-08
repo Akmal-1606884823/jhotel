@@ -8,10 +8,11 @@
 public class DatabasePesanan
 {
     
-    private String list_pesanan;
+    private String[] list_pesanan;
     
     /**
-     * Constructor untuk DatabasePesanan
+     * Menambah pesanan
+     * @return Untuk status apakah true atau tidak
      */
     public boolean addPesanan(Pesanan baru){
 
@@ -21,7 +22,7 @@ public class DatabasePesanan
     
     /**
      * Menghapus pesanan
-     * @return boolean Untuk status apakah true atau tidak
+     * @return Untuk status apakah true atau tidak
      */
 
     public boolean removePesanan(Pesanan pesan){
@@ -33,7 +34,7 @@ public class DatabasePesanan
     
     /**
      * Menunjukkan pesanan
-     * @return Pesanan untuk menambah pesanan
+     * @return Untuk menambah pesanan
      * @param cust untuk menerima informasi customer
      */
 
@@ -44,12 +45,13 @@ public class DatabasePesanan
     
      /**
      * Menunjukkan database pesanan
-     * @return String untuk menampilkan databasepesanan
+     * @return Untuk menampilkan databasepesanan
      */
-    public String getPesananDatabase (){
+    public String[] getPesananDatabase (){
     
         return null;
     }
+    
     public void pesananDibatalkan (Pesanan pesan){
     
 

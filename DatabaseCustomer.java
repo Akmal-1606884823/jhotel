@@ -8,10 +8,12 @@
 public class DatabaseCustomer
 {
 
-   private String list_customer;
+   private String[] list_customer;
    
    /**
-     * Constructor untuk DatabaseCustomer
+     * Menambah Customer
+     * @param baru Customer baru 
+     * @return Status Customer baru
      */
    
    public boolean addCustomer(Customer baru){
@@ -24,7 +26,7 @@ public class DatabaseCustomer
     /**
      * Menghapus customer
      * @param id Id dari pengguna yang akan dihapus
-     * @return boolean adalah status penghapusan
+     * @return Status penghapusan
      */
     
    public boolean removeCustomer(int id){
@@ -38,7 +40,7 @@ public class DatabaseCustomer
      * @return String Menunjukkan nama customer
      */
 
-   public String getCustomerDatabase(){
+   public String[] getCustomerDatabase(){
        
        return list_customer;
     

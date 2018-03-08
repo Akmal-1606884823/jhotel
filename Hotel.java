@@ -17,6 +17,9 @@ public class Hotel
    */
   
   public Hotel(String nama,Lokasi lokasi,int bintang){
+      this.nama = nama;
+      this.lokasi = lokasi;
+      this.bintang = bintang;
     
     
     
@@ -24,7 +27,7 @@ public class Hotel
     
     /**
      * Menunjukkan bintang
-     * @return int menunjukkan nilai bintang
+     * @return Menunjukkan nilai bintang
      */
   public int getBintang(){
     
@@ -33,7 +36,7 @@ public class Hotel
     
     /**
      * Menunjukkan nama
-     * @return int Menampilkan nama
+     * @return Menampilkan nama
      */
     
   public String getNama(){
@@ -42,7 +45,7 @@ public class Hotel
     }
     /**
      * Menunjukkan lokasi
-     * @return int menunjukkan nilai lokasi
+     * @return Menunjukkan nilai lokasi
      */
   public Lokasi getLokasi(){
     
@@ -80,8 +83,9 @@ public class Hotel
       this.bintang = bintang;
     
     }
-  public void printData(){
     
+  public void printData(){
+      System.out.println(nama);
     
     
     }

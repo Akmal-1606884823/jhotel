@@ -16,8 +16,9 @@ public class Lokasi
     * Constructor untuk Lokasi
     */
     public Lokasi(float x_coord,float y_coord,String deskripsiLokasi){
-    
-    
+        this.x_coord = x_coord;
+        this.y_coord = y_coord;
+        this.deskripsiLokasi = deskripsiLokasi;
     
     
     
@@ -26,7 +27,7 @@ public class Lokasi
     
     /**
      * Menunjukkan nilai X
-     * @return float Untuk menunjukkan X
+     * @return Untuk menunjukkan X
      */
     
     public float getX (){
@@ -36,7 +37,7 @@ public class Lokasi
     
     /**
     * Menunjukkan nilai y
-    * @return float Untuk menunjukkan Y
+    * @return Untuk menunjukkan Y
     */
     
     public float getY(){
@@ -46,7 +47,7 @@ public class Lokasi
     
     /**
     * Menunjukkan deskripsi
-    * @return String Untuk menunjukkan Deskripsi
+    * @return Untuk menunjukkan Deskripsi
     */
     public String getDeskripsi(){
         
@@ -83,7 +84,7 @@ public class Lokasi
     }
     
     public void printData(){
-    
+        System.out.println(deskripsiLokasi);
     
     }
    

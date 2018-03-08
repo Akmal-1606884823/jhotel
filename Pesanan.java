@@ -14,19 +14,22 @@ public class Pesanan
     private String Jenis_kamar;
     private boolean isdiproses;
     private boolean isselesai;
+    private Room kamar;
+   
     
     /**
      * Constructor untuk Pesanan
      */
-    public Pesanan (double biaya,Customer pelanggan,String nama_pelanggan,String Jenis_kamar,boolean isdiproses,boolean isselesai){
-
+    public Pesanan (double biaya,Customer pelanggan){
+        this.biaya = biaya;
+        this.pelanggan = pelanggan;
     
     
     }
     
     /**
      * Menunjukkan biaya
-     * @return double Untuk mengassign biaya
+     * @return Untuk mengassign biaya
      */
 
     public double getBiaya (){
@@ -36,7 +39,7 @@ public class Pesanan
     
     /**
      * Menunjukkan pelanggan
-     * @return Customer Untuk menambah pesanan dari pelanggan
+     * @return Untuk menambah pesanan dari pelanggan
      */
     public Customer getPelanggan(){
 
@@ -46,7 +49,7 @@ public class Pesanan
     
     /**
      * Menunjukkan status proses
-     * @return boolean Menampilkan status apakah true or false
+     * @return Menampilkan status apakah true or false
      */
 
     public boolean getStatusDiproses (){
@@ -56,7 +59,7 @@ public class Pesanan
     
     /**
      * Menunjukkan status selesai
-     * @return boolean Menunjukkan status apakah selesai
+     * @return Menunjukkan status apakah selesai
      */
      public boolean getStatusSelesai (){
     
@@ -79,7 +82,7 @@ public class Pesanan
      */
     public void setPelanggan(Customer baru){
         
-        this.pelanggan = pelanggan;
+        pelanggan = baru;
         
     }
     
@@ -89,7 +92,7 @@ public class Pesanan
      */
     public void setStatusDiproses(boolean diproses){
         
-        this.isdiproses = isdiproses;
+        isdiproses = diproses;
     }
     
     /**
@@ -98,13 +101,13 @@ public class Pesanan
      */
     public void setStatusSelesai(boolean selesai){
     
-        this.isselesai = isselesai;
+        isselesai = selesai;
         
     }
     
     /**
      * Menunjukkan nama
-     * @return string Untuk menampilkan nama
+     * @return Untuk menampilkan nama
      */
     
     public String getNama(){
@@ -112,8 +115,21 @@ public class Pesanan
        return nama_pelanggan;
     
     }
-     public void printData(){
     
+    public void setRoom(Room kamar){
+        this.kamar = kamar;
+    }
+    
+    public Room getRoom(){
+        return kamar;
+    }
+   
+    
+    public void printData(){
+         System.out.println(biaya);
+         System.out.println(isselesai);
+         System.out.println(isdiproses);
+         System.out.println(kamar);
         
     }
 }

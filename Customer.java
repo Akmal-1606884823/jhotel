@@ -17,14 +17,15 @@ public class Customer
       */
      
      public Customer(int id,String nama){
-         
+         this.id = id;
+         this.nama = nama;
          
      
         }
         
         /**
          * Menunjukkan Id
-         * @return int Untuk menampilkan id
+         * @return Untuk menampilkan id
          */   
         
      public int getid(){
@@ -35,7 +36,7 @@ public class Customer
         
         /**
          * Menunjukkan nama
-         * @return String Untuk menampilkan nama
+         * @return Untuk menampilkan nama 
          */   
         
 
@@ -67,7 +68,7 @@ public class Customer
        }
        
      public void printData(){
-    
+         System.out.println(nama);
     
      }
     }
