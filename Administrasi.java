@@ -23,8 +23,10 @@ public class Administrasi
     }
    
    public void roomLepasPesanan(Room kamar){
+      
        kamar.setStatusKamar(StatusKamar.Vacant);
        kamar.setPesanan(null);
+       
     
     }
    
@@ -39,20 +41,22 @@ public class Administrasi
     }
    
    public void pesananSelesai(Room kamar){
-       Pesanan Sem = kamar.getPesanan();
-       Sem.setStatusSelesai(true);
-       Sem.setStatusDiproses(false);
-       Sem.setRoom(null);
-       kamar.setPesanan(Sem);
+       Pesanan Semanta = new Pesanan (0,kamar.getCustomer());
+       Semanta = kamar.getPesanan();
+       Semanta.setStatusDiproses(false);
+       Semanta.setStatusSelesai(true);
+       Semanta.setRoom(null);
+       kamar.setPesanan(Semanta);
        
        roomLepasPesanan(kamar);
        
    }
    
    public void pesananDibatalkan(Pesanan pesan){
-       Room Sem = pesan.getRoom();
-       roomLepasPesanan(Sem);
-       pesan.setRoom(Sem);
+       Room Sementar = new Room (null,"A",false);
+       Sementar = pesan.getRoom();
+       
+       pesan.setRoom(Sementar);
        
        pesan.setStatusSelesai(false);
        pesan.setStatusDiproses(false);
@@ -61,9 +65,10 @@ public class Administrasi
     }
    
    public void pesananSelesai(Pesanan pesan){
-       Room Sem = pesan.getRoom();
-       roomLepasPesanan(Sem);
-       pesan.setRoom(Sem);
+       Room Semantc = new Room (null,"A",false);
+       Semantc = pesan.getRoom();
+       
+       pesan.setRoom(Semantc);
        
        pesan.setStatusSelesai(true);
        pesan.setStatusDiproses(false);

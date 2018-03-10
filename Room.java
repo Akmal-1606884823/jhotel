@@ -16,6 +16,15 @@ public class Room
     private StatusKamar statuskamar;
     private Pesanan pesan;
     
+    public Room (Hotel hotel,String nomor_kamar,boolean isAvailable){
+        this.hotel = hotel;
+        this.nomor_kamar = nomor_kamar;
+        this.isAvailable = isAvailable;
+        
+    
+    
+    }
+    
     public Hotel gethotel(){
         return hotel;
     }
@@ -71,17 +80,16 @@ public class Room
         this.pesan = pesan;
     }
     public void printData(){
-        System.out.println(nomor_kamar);
-        System.out.println(statuskamar);
-        
-        
-    
+        System.out.println("Room");
+        System.out.println("");
+        System.out.println("Nama Hotel : " + hotel.getNama());
+        System.out.println("Nomor Kamar : " + nomor_kamar);
+        System.out.println("Status Tersedia : " + isAvailable);
+        System.out.println("Nama Pelanggan : " + customer.getNama());
+        System.out.println("Biaya : " + dailyTariff);
+        System.out.println("Status Kamar : " + statuskamar);
+        System.out.println("");
+       
     }
-    
-    
-    
-    
-    
-    
     
 }
