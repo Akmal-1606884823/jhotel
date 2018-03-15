@@ -9,9 +9,8 @@
 public class Pesanan
 {
     private double biaya;
+    private double jumlahHari;
     private Customer pelanggan;
-    private String nama_pelanggan;
-    private TipeKamar tipe_kamar;
     private boolean isdiproses;
     private boolean isselesai;
     private Room kamar;
@@ -20,14 +19,12 @@ public class Pesanan
     /**
      * Constructor untuk Pesanan
      */
-    public Pesanan (double biaya,Customer pelanggan){
-        this.biaya = biaya;
+    public Pesanan (Customer pelanggan, Room kamar){
+        biaya = kamar.getDailyTariff() * jumlahHari;
         this.pelanggan = pelanggan;
-        
-        nama_pelanggan = pelanggan.getNama();
-        
-    
-    
+        this.kamar = kamar;
+       
+          
     }
     
     /**
@@ -40,6 +37,12 @@ public class Pesanan
         return biaya;
     }
     
+    public double getJumlahHari(){
+        
+        return jumlahHari;
+    
+    }
+    
     /**
      * Menunjukkan pelanggan
      * @return Untuk menambah pesanan dari pelanggan
@@ -48,21 +51,6 @@ public class Pesanan
 
     
         return pelanggan;
-    }
-    
-    /**
-     * Menunjukkan nama
-     * @return Untuk menampilkan nama
-     */
-    public String getNamaPelanggan(){
-    
-       return nama_pelanggan;
-    
-    }
-    
-    public TipeKamar getTipeKamar(){
-        return tipe_kamar;
-    
     }
     
     /**
@@ -92,31 +80,26 @@ public class Pesanan
      * Menetapkan nilai biaya
      * @param biaya menerima biaya untuk memasukkan pada variabel
      */
-    public void setBiaya (double biaya){
+    public void setBiaya (){
         
-        this.biaya = biaya;
+        biaya = kamar.getDailyTariff() * jumlahHari;
            
+    }
+    
+    public void setJumlahHari(double jumlahHari){
+    
+        this.jumlahHari = jumlahHari;
+    
     }
     
     /**
      * Menetapkan pelanggan
      * @param baru untuk menambah customer baru
      */
-    public void setPelanggan(Customer baru){
+    public void setPelanggan(Customer pelanggan){
         
-        pelanggan = baru;
+        this.pelanggan = pelanggan;
         
-    }
-    
-    public void setNamaPelanggan(String nama_pelanggan){
-        
-        this.nama_pelanggan = nama_pelanggan;
-    
-    }
-    
-    public void setTipeKamar(TipeKamar tipe_kamar){
-    
-        this.tipe_kamar = tipe_kamar;
     }
     
     /**
@@ -145,8 +128,9 @@ public class Pesanan
     public void printData(){
          System.out.println("Pesanan");
          System.out.println("");
-         System.out.println("Nama Pelanggan : " +  nama_pelanggan);
-         System.out.println("Tipe kamar : " + tipe_kamar);
+         System.out.println("Nama Pelanggan : " + pelanggan.getNama());
+         System.out.println("Jumlah Harinya : " + jumlahHari);
+         System.out.println("Biayanya : " + biaya);
          System.out.println("Status Diprosesnya : " + isdiproses);
          System.out.println("Status Selesainya : " + isselesai);
          System.out.println("");

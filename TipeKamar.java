@@ -7,6 +7,18 @@
  */
 public enum TipeKamar
 {
-    Single,Double,Premium
+    Single("Single"),Double("Double"),Premium("Premium");
+    
+    private String tipekamar;
+    
+    TipeKamar(String tipekamar) {
+        this.tipekamar = tipekamar;
+    
+    }
+    
+    public String toString(){
+        return tipekamar;
+    
+    } 
     
 }

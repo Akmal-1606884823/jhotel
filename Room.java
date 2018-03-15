@@ -5,21 +5,20 @@
  * @author (your name)
  * @version (a version number or a date)
  */
-public class Room
+public abstract class Room
 {
     private Hotel hotel;
-    private int id;
     private String nomor_kamar;
     private boolean isAvailable;
-    private Customer customer;
-    private double dailyTariff;
+    protected double dailyTariff;
     private StatusKamar statuskamar;
     private Pesanan pesan;
     
-    public Room (Hotel hotel,String nomor_kamar,boolean isAvailable){
+    public Room (Hotel hotel,String nomor_kamar,boolean isAvailable,StatusKamar statuskamar){
         this.hotel = hotel;
         this.nomor_kamar = nomor_kamar;
         this.isAvailable = isAvailable;
+        this.statuskamar = statuskamar;
         
     
     
@@ -29,20 +28,12 @@ public class Room
         return hotel;
     }
     
-    public int getID(){
-        return id;
-    }
-    
     public String getNomorKamar(){
         return nomor_kamar;
     }
     
     public boolean getStatusAvailable(){
         return isAvailable;
-    }
-    
-    public Customer getCustomer(){
-        return customer;
     }
     
     public double getDailyTariff(){
@@ -54,21 +45,20 @@ public class Room
     public Pesanan getPesanan(){
         return pesan;
     }
+    
+    public abstract TipeKamar getTipeKamar();
+    
     public void setHotel(Hotel hotel){
         this.hotel = hotel;
     }
-    public void setID(int id){
-        this.id = id;
-    }
+    
     public void setNomorKamar(String nomor_kamar){
         this.nomor_kamar = nomor_kamar;
     }
     public void setStatusAvailable(boolean isAvailable){
         this.isAvailable = isAvailable;
     }
-    public void setCustomer(Customer customer){
-        this.customer = customer;
-    }
+
     public void setDailyTariff(double dailytariff){
         this.dailyTariff = dailytariff;
     }
@@ -85,8 +75,7 @@ public class Room
         System.out.println("Nama Hotel : " + hotel.getNama());
         System.out.println("Nomor Kamar : " + nomor_kamar);
         System.out.println("Status Tersedia : " + isAvailable);
-        System.out.println("Nama Pelanggan : " + customer.getNama());
-        System.out.println("Biaya : " + dailyTariff);
+        System.out.println("Biaya kamar: " + dailyTariff);
         System.out.println("Status Kamar : " + statuskamar);
         System.out.println("");
        

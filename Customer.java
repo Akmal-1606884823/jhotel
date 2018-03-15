@@ -68,8 +68,11 @@ public class Customer
        }
        
      public void printData(){
-         System.out.println(nama);
-         System.out.println(id);
+         System.out.println("Customer");
+         System.out.println("");
+         System.out.println("Maka nama Customer : "+nama);
+         System.out.println("Maka ID customer adalah : "+id);
+         System.out.println("");
     
      }
     }

@@ -23,40 +23,31 @@ public class Administrasi
     }
    
    public void roomLepasPesanan(Room kamar){
-      
        kamar.setStatusKamar(StatusKamar.Vacant);
        kamar.setPesanan(null);
-       
     
     }
    
    public void pesananDibatalkan(Room kamar){
-       Pesanan Sem = kamar.getPesanan();
-       Sem.setStatusDiproses(false);
-       Sem.setRoom(null);
-       kamar.setPesanan(Sem);
+       kamar.getPesanan().setStatusSelesai(false);
+       kamar.getPesanan().setStatusDiproses(false);
+       kamar.getPesanan().setRoom(null);
        
        roomLepasPesanan(kamar);
     
     }
    
    public void pesananSelesai(Room kamar){
-       Pesanan Semanta = new Pesanan (0,kamar.getCustomer());
-       Semanta = kamar.getPesanan();
-       Semanta.setStatusDiproses(false);
-       Semanta.setStatusSelesai(true);
-       Semanta.setRoom(null);
-       kamar.setPesanan(Semanta);
+       kamar.getPesanan().setStatusDiproses(false);
+       kamar.getPesanan().setStatusSelesai(true);
+       kamar.getPesanan().setRoom(null);
        
        roomLepasPesanan(kamar);
        
    }
    
    public void pesananDibatalkan(Pesanan pesan){
-       Room Sementar = new Room (null,"A",false);
-       Sementar = pesan.getRoom();
-       
-       pesan.setRoom(Sementar);
+       roomLepasPesanan(pesan.getRoom());
        
        pesan.setStatusSelesai(false);
        pesan.setStatusDiproses(false);
@@ -65,10 +56,7 @@ public class Administrasi
     }
    
    public void pesananSelesai(Pesanan pesan){
-       Room Semantc = new Room (null,"A",false);
-       Semantc = pesan.getRoom();
-       
-       pesan.setRoom(Semantc);
+       roomLepasPesanan(pesan.getRoom());
        
        pesan.setStatusSelesai(true);
        pesan.setStatusDiproses(false);

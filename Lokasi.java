@@ -84,10 +84,12 @@ public class Lokasi
     }
     
     public void printData(){
-        System.out.println(deskripsiLokasi);
-        System.out.println(x_coord);
-        System.out.println(y_coord);
-    
+        System.out.println("Lokasi");
+        System.out.println("");
+        System.out.println("Maka deskripsi lokasi : "+deskripsiLokasi);
+        System.out.println("Maka koordinat X adalah : "+x_coord);
+        System.out.println("Maka koordinat Y adalah : "+y_coord);
+        System.out.println("");
     }
    
 }

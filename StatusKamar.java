@@ -7,5 +7,17 @@
  */
 public enum StatusKamar
 {
-    Booked,Processed,Vacant
+    Booked("Booked"),Processed("Processed"),Vacant("Vacant");
+    
+    private String statuskamar;
+    
+    StatusKamar(String statuskamar) {
+        this.statuskamar = statuskamar;
+    
+    }
+    
+    public String toString(){
+        return statuskamar;
+    
+    } 
 }
