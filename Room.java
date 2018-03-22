@@ -69,16 +69,16 @@ public abstract class Room
     public void setPesanan(Pesanan pesan){
         this.pesan = pesan;
     }
-    public void printData(){
-        System.out.println("Room");
-        System.out.println("");
-        System.out.println("Nama Hotel : " + hotel.getNama());
-        System.out.println("Nomor Kamar : " + nomor_kamar);
-        System.out.println("Status Tersedia : " + isAvailable);
-        System.out.println("Biaya kamar: " + dailyTariff);
-        System.out.println("Status Kamar : " + statuskamar);
-        System.out.println("");
-       
+    
+    public String toString(){
+        if(isAvailable == true){
+            return "Nama Hotel : "+hotel.getNama()+"Tipe Kamar : "+getTipeKamar()+"Harga  : "+dailyTariff+"Status Kamar : "+statuskamar;
+            
+            
+        }
+        else{
+             return "Nama Hotel : "+hotel.getNama()+"Tipe Kamar : "+getTipeKamar()+"Harga  : "+dailyTariff+"Status Kamar : "+statuskamar+"Pelanggan : "+pesan;
+        }
     }
     
 }

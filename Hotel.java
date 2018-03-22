@@ -84,12 +84,7 @@ public class Hotel
     
     }
     
-  public void printData(){
-      System.out.println("Hotel");
-      System.out.println("");
-      System.out.println("Maka nama dari Hotel :"+ nama);
-      System.out.println("Maka hotel berbintang :"+ bintang);
-      System.out.println("Deskripsi hotel adalah :" +lokasi.getDeskripsi());
-      System.out.println("");
+  public String toString(){
+      return "Nama dari Hotel adalah : "+nama+"   Hotel berbintang : "+bintang+"  Deskripsi hotel adalah : "+lokasi.getDeskripsi(); 
     }
 }

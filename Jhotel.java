@@ -1,7 +1,7 @@
 public class Jhotel
 {
     public void main(String[] args){
-        
+        /*
         Lokasi l = new Lokasi (12,13,"Pantai");
         Hotel h = new Hotel ("akmal",l,12);
         Customer c = new Customer (15,"Alaska");
@@ -46,7 +46,19 @@ public class Jhotel
         else if (w instanceof SingleRoom){
             System.out.println("Salah, Bukan Double Room");
         }
-        
+        */
+       Lokasi lok = new Lokasi(12,23,"Pantai");
+       Hotel ho = new Hotel("ak",lok,2);
+       Room ro = new SingleRoom(ho,"23",true,StatusKamar.Booked);
+       Customer cus = new Customer(12,"ka",11,22,2011);
+       Pesanan pes = new Pesanan(cus,ro);
+       
+       System.out.println(cus);
+       System.out.println(ro);
+       System.out.println(pes);
+       
+       
+       
 
     }
     public Jhotel(){
