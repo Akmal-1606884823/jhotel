@@ -11,6 +11,7 @@ public class Hotel
   private String nama;
   private Lokasi lokasi;
   private int bintang;
+  private int id;
   
   /**
    * Constructor untuk Hotel
@@ -24,6 +25,10 @@ public class Hotel
     
     
     }
+    
+  public int getID(){
+    return id;
+    } 
     
     /**
      * Menunjukkan bintang
@@ -51,6 +56,10 @@ public class Hotel
     
       return lokasi;
     }
+    
+  public void setID(int id){
+    this.id = id;
+    }  
     
     /**
      * Menetapkan nama
@@ -85,6 +94,10 @@ public class Hotel
     }
     
   public String toString(){
-      return "Nama dari Hotel adalah : "+nama+"   Hotel berbintang : "+bintang+"  Deskripsi hotel adalah : "+lokasi.getDeskripsi(); 
+      String print = "\nNama dari Hotel adalah : "+nama+
+                     "\nHotel berbintang"+bintang+
+                     "\nDeskripsi hotel adalah : "+lokasi.getDeskripsi()+".\n";
+      
+      return print; 
     }
 }

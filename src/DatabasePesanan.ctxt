@@ -1,0 +1,25 @@
+#BlueJ class context
+comment0.target=DatabasePesanan
+comment1.params=
+comment1.target=java.util.ArrayList\ getPesananDatabase()
+comment2.params=
+comment2.target=int\ getLastPesananID()
+comment3.params=baru
+comment3.target=boolean\ addPesanan(Pesanan)
+comment3.text=\r\n\ Menambah\ pesanan\r\n\ @return\ Untuk\ status\ apakah\ true\ atau\ tidak\r\n
+comment4.params=id
+comment4.target=Pesanan\ getPesanan(int)
+comment5.params=kamar
+comment5.target=Pesanan\ getPesanan(Room)
+comment6.params=
+comment6.target=Pesanan\ getPesananAktif()
+comment7.params=pesan
+comment7.target=boolean\ removePesanan(Pesanan)
+comment7.text=\r\n\ Menghapus\ pesanan\r\n\ @return\ Untuk\ status\ apakah\ true\ atau\ tidak\r\n
+comment8.params=cust
+comment8.target=Pesanan\ getPesanan(Customer)
+comment8.text=\r\n\ Menunjukkan\ pesanan\r\n\ @return\ Untuk\ menambah\ pesanan\r\n\ @param\ cust\ untuk\ menerima\ informasi\ customer\r\n
+comment9.params=pesan
+comment9.target=void\ pesananDibatalkan(Pesanan)
+comment9.text=\r\n\ Menunjukkan\ database\ pesanan\r\n\ @return\ Untuk\ menampilkan\ databasepesanan\r\n
+numComments=10

@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.target=DatabaseRoom
+comment1.params=
+comment1.target=java.util.ArrayList\ getRoomDatabase()
+comment2.params=baru
+comment2.target=boolean\ addRoom(Room)
+comment3.params=hotel\ nomor_kamar
+comment3.target=Room\ getRoom(Hotel,\ java.lang.String)
+comment4.params=hotel
+comment4.target=java.util.ArrayList\ getRoomFromHotel(Hotel)
+comment5.params=
+comment5.target=java.util.ArrayList\ getVacantRooms()
+comment6.params=hotel\ nomor_kamar
+comment6.target=boolean\ removeRoom(Hotel,\ java.lang.String)
+numComments=7

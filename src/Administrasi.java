@@ -32,6 +32,7 @@ public class Administrasi
        kamar.getPesanan().setStatusSelesai(false);
        kamar.getPesanan().setStatusDiproses(false);
        kamar.getPesanan().setRoom(null);
+       kamar.getPesanan().setStatusAktif(false);
        
        roomLepasPesanan(kamar);
     
@@ -41,6 +42,7 @@ public class Administrasi
        kamar.getPesanan().setStatusDiproses(false);
        kamar.getPesanan().setStatusSelesai(true);
        kamar.getPesanan().setRoom(null);
+       kamar.getPesanan().setStatusAktif(false);
        
        roomLepasPesanan(kamar);
        

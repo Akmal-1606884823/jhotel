@@ -10,8 +10,8 @@ public class PremiumRoom extends Room
     private double DISCOUNT = 0.3;
     private static final TipeKamar TIPE_KAMAR = TipeKamar.Premium;
     
-    public PremiumRoom(Hotel hotel,String nomor_kamar,boolean isAvailable,StatusKamar status_kamar){
-        super(hotel,nomor_kamar,isAvailable,status_kamar);
+    public PremiumRoom(Hotel hotel,String nomor_kamar,StatusKamar status_kamar){
+        super(hotel,nomor_kamar,status_kamar);
     }
     
     public TipeKamar getTipeKamar(){

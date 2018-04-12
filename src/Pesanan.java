@@ -16,20 +16,30 @@ public class Pesanan
     private boolean isselesai;
     private Room kamar;
     private Date tanggalPesan;
-   
+    private boolean isAktif = true;
+    private int id;
+    
     
     /**
      * Constructor untuk Pesanan
      */
-    public Pesanan (Customer pelanggan, Room kamar){
+    public Pesanan (Customer pelanggan,double jumlahHari){
+        this.jumlahHari =jumlahHari;
         biaya = kamar.getDailyTariff() * jumlahHari;
         this.pelanggan = pelanggan;
-        this.kamar = kamar;  
+        tanggalPesan = new Date();
+        DatabasePesanan n = new DatabasePesanan();
+        id = n.getLastPesananID() + 1; 
     }
     
     public Pesanan(GregorianCalendar time){
        
          tanggalPesan = new Date(time.get(Calendar.YEAR),time.get(Calendar.MONTH),time.get(Calendar.DATE));
+    }
+    
+    public int getID(){
+        
+        return id;
     }
     
     /**
@@ -38,7 +48,7 @@ public class Pesanan
      */
 
     public double getBiaya (){
-    
+        
         return biaya;
     }
     
@@ -57,6 +67,11 @@ public class Pesanan
     
         return pelanggan;
     }
+    
+    public boolean getStatusAktif (){
+    
+        return isAktif;
+    } 
     
     /**
      * Menunjukkan status proses
@@ -83,6 +98,10 @@ public class Pesanan
     
     public Date getTanggalPesan(){
         return tanggalPesan;
+    }
+    
+    public void setID(int id){
+        this.id=id;
     }
     
     /**
@@ -130,6 +149,12 @@ public class Pesanan
         
     }
     
+    public void setStatusAktif(boolean isAktif){
+    
+        this.isAktif = isAktif;
+        
+    }
+    
     public void setRoom(Room kamar){
         this.kamar = kamar;
     }
@@ -153,7 +178,13 @@ public class Pesanan
             final_status = "SELESAI";
         }
         
-        return "Dibuat oleh " + pelanggan.getNama() + ". Proses booking untuk " +kamar.gethotel() + "kamar nomor " + kamar.getNomorKamar() + " dengan tipe kamar yang diinginkan " +kamar.getTipeKamar() + ". Status: " + final_status + ".";
+        String print = " \nDibuat oleh : " +pelanggan.getNama() +
+                        "\nProses Booking untuk : "+kamar.gethotel() +
+                        "\nKamar Nomor : "+kamar.getNomorKamar() +
+                        "\nDengan Tipe kamar yang diinginkan : "+kamar.getTipeKamar() +
+                        "\nStatus : "+final_status+".\n" ;
+                        
+        return print;
         
     }
 }

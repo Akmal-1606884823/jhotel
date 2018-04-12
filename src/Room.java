@@ -9,15 +9,13 @@ public abstract class Room
 {
     private Hotel hotel;
     private String nomor_kamar;
-    private boolean isAvailable;
     protected double dailyTariff;
     private StatusKamar statuskamar;
     private Pesanan pesan;
     
-    public Room (Hotel hotel,String nomor_kamar,boolean isAvailable,StatusKamar statuskamar){
+    public Room (Hotel hotel,String nomor_kamar,StatusKamar statuskamar){
         this.hotel = hotel;
         this.nomor_kamar = nomor_kamar;
-        this.isAvailable = isAvailable;
         this.statuskamar = statuskamar;
         
     
@@ -30,10 +28,6 @@ public abstract class Room
     
     public String getNomorKamar(){
         return nomor_kamar;
-    }
-    
-    public boolean getStatusAvailable(){
-        return isAvailable;
     }
     
     public double getDailyTariff(){
@@ -55,9 +49,6 @@ public abstract class Room
     public void setNomorKamar(String nomor_kamar){
         this.nomor_kamar = nomor_kamar;
     }
-    public void setStatusAvailable(boolean isAvailable){
-        this.isAvailable = isAvailable;
-    }
 
     public void setDailyTariff(double dailytariff){
         this.dailyTariff = dailytariff;
@@ -71,13 +62,22 @@ public abstract class Room
     }
     
     public String toString(){
-        if(isAvailable == true){
-            return "Nama Hotel : "+hotel.getNama()+"Tipe Kamar : "+getTipeKamar()+"Harga  : "+dailyTariff+"Status Kamar : "+statuskamar;
-            
-            
+        if(true){
+            String print = "\nNama Hotel : "+hotel.getNama()+
+                           "\nTipe Kamar : "+getTipeKamar()+
+                           "\nHarga : "+dailyTariff+
+                           "\nStatus Kamar : "+statuskamar+".\n";
+                           
+            return print;
         }
         else{
-             return "Nama Hotel : "+hotel.getNama()+"Tipe Kamar : "+getTipeKamar()+"Harga  : "+dailyTariff+"Status Kamar : "+statuskamar+"Pelanggan : "+pesan;
+             String print = "\nNama Hotel : "+hotel.getNama()+
+                            "\nTipe Kamar : "+getTipeKamar()+
+                            "\nHarga : "+dailyTariff+
+                            "\nStatus Kamar : "+statuskamar+
+                            "\nPelanggan"+pesan+".\n";
+                            
+             return print;
         }
     }
     

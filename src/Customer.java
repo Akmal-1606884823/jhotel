@@ -9,6 +9,7 @@ import java.util.Date;
 import java.util.Date.*;
 import java.util.regex.*;
 import java.util.*;
+import java.text.SimpleDateFormat;
 
 public class Customer
 {
@@ -33,7 +34,6 @@ public class Customer
          yourId = id;
          yourName = nama;
          dob = new Date(time.get(Calendar.YEAR),time.get(Calendar.MONTH),time.get(Calendar.DATE));
-         
          
         }
         
@@ -92,6 +92,14 @@ public class Customer
        }
        
      public void setEmail(String email){
+        Pattern pattern = Pattern.compile("/[a-z]{2}\\-[0-9]{3}", 5);
+        Matcher matcher = pattern.matcher("aa098hkasjdh786sda sdb76ads");
+
+        while (matcher.find())
+        {
+            System.out.println(matcher.group()+"");
+        }
+         
          this.email = email;
         }
         
@@ -100,8 +108,14 @@ public class Customer
         }
        
      public String toString(){
-        return nama+id+email;
+        SimpleDateFormat format = new SimpleDateFormat("dd MMMM yyyy");
+
+        String print =  "\nCustomer ID    : "+id+
+                        "\nName           : "+nama+
+                        "\nE-Mail         : "+email+
+                        "\nDate of Birth  : "+format.format(this.dob)+".\n";
         
+        return print;
         }
     }
         

@@ -47,16 +47,7 @@ public class Jhotel
             System.out.println("Salah, Bukan Double Room");
         }
         */
-       Lokasi lok = new Lokasi(12,23,"Pantai");
-       Hotel ho = new Hotel("ak",lok,2);
-       Room ro = new SingleRoom(ho,"23",true,StatusKamar.Booked);
-       Customer cus = new Customer(12,"ka",11,22,2011);
-       Pesanan pes = new Pesanan(cus,ro);
-       
-       System.out.println(cus);
-       System.out.println(ro);
-       System.out.println(pes);
-       
+      
        
        
 

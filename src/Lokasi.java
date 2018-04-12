@@ -84,7 +84,11 @@ public class Lokasi
     }
     
     public String toString(){
-        return " Deskripsi Lokasi :"+deskripsiLokasi+" Koordinat X :"+x_coord+" Koordinat Y : "+y_coord;
+        String print = "\nDeskripsi Lokasi : "+deskripsiLokasi+
+                       "\nKoordinat X : "+x_coord+
+                       "\nKoordinat Y : "+y_coord+".\n";
+        
+        return print;
     }
    
 }
