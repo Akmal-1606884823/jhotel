@@ -11,12 +11,11 @@ public abstract class Room
     private String nomor_kamar;
     protected double dailyTariff;
     private StatusKamar statuskamar;
-    private Pesanan pesan;
     
     public Room (Hotel hotel,String nomor_kamar,StatusKamar statuskamar){
         this.hotel = hotel;
         this.nomor_kamar = nomor_kamar;
-        this.statuskamar = statuskamar;
+        statuskamar = StatusKamar.Vacant;
         
     
     
@@ -36,9 +35,6 @@ public abstract class Room
     public StatusKamar getStatusKamar(){
         return statuskamar;
     }
-    public Pesanan getPesanan(){
-        return pesan;
-    }
     
     public abstract TipeKamar getTipeKamar();
     
@@ -57,10 +53,7 @@ public abstract class Room
         status_kamar = statuskamar;
     
     }
-    public void setPesanan(Pesanan pesan){
-        this.pesan = pesan;
-    }
-    
+  
     public String toString(){
         if(true){
             String print = "\nNama Hotel : "+hotel.getNama()+
@@ -71,11 +64,12 @@ public abstract class Room
             return print;
         }
         else{
+             DatabasePesanan dp = new DatabasePesanan();
              String print = "\nNama Hotel : "+hotel.getNama()+
                             "\nTipe Kamar : "+getTipeKamar()+
                             "\nHarga : "+dailyTariff+
                             "\nStatus Kamar : "+statuskamar+
-                            "\nPelanggan"+pesan+".\n";
+                            "\nPesanan : "+dp.getPesanan(hotel.getID()) ;
                             
              return print;
         }

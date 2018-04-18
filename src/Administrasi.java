@@ -18,31 +18,31 @@ public class Administrasi
    
    public void roomAmbilPesanan(Pesanan pesan,Room kamar){
        kamar.setStatusKamar(StatusKamar.Booked);
-       kamar.setPesanan(pesan);
        
     }
    
    public void roomLepasPesanan(Room kamar){
        kamar.setStatusKamar(StatusKamar.Vacant);
-       kamar.setPesanan(null);
     
     }
    
    public void pesananDibatalkan(Room kamar){
-       kamar.getPesanan().setStatusSelesai(false);
-       kamar.getPesanan().setStatusDiproses(false);
-       kamar.getPesanan().setRoom(null);
-       kamar.getPesanan().setStatusAktif(false);
+       DatabasePesanan dp = new DatabasePesanan();
+       dp.getPesanan(kamar.gethotel().getID()).setStatusSelesai(false);
+       dp.getPesanan(kamar.gethotel().getID()).setStatusDiproses(false);
+       dp.getPesanan(kamar.gethotel().getID()).setRoom(null);
+       dp.getPesanan(kamar.gethotel().getID()).setStatusAktif(false);
        
        roomLepasPesanan(kamar);
     
     }
    
    public void pesananSelesai(Room kamar){
-       kamar.getPesanan().setStatusDiproses(false);
-       kamar.getPesanan().setStatusSelesai(true);
-       kamar.getPesanan().setRoom(null);
-       kamar.getPesanan().setStatusAktif(false);
+       DatabasePesanan dp = new DatabasePesanan();
+       dp.getPesanan(kamar.gethotel().getID()).setStatusDiproses(false);
+       dp.getPesanan(kamar.gethotel().getID()).setStatusSelesai(true);
+       dp.getPesanan(kamar.gethotel().getID()).setRoom(null);
+       dp.getPesanan(kamar.gethotel().getID()).setStatusAktif(false);
        
        roomLepasPesanan(kamar);
        

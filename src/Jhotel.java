@@ -1,6 +1,6 @@
 public class Jhotel
 {
-    public void main(String[] args){
+    public static void main(String[] args){
         /*
         Lokasi l = new Lokasi (12,13,"Pantai");
         Hotel h = new Hotel ("akmal",l,12);
@@ -48,8 +48,9 @@ public class Jhotel
         }
         */
       
-       
-       
+       Hotel h = new Hotel("Nice",null,88);
+
+       System.out.println("Test print");
 
     }
     public Jhotel(){

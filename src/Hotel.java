@@ -18,9 +18,12 @@ public class Hotel
    */
   
   public Hotel(String nama,Lokasi lokasi,int bintang){
+      DatabaseHotel dh = new DatabaseHotel();
+      id = dh.getLastHotelID() + 1;
       this.nama = nama;
       this.lokasi = lokasi;
       this.bintang = bintang;
+      
     
     
     

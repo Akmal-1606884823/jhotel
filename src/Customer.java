@@ -23,15 +23,17 @@ public class Customer
       * Constructor untuk Customer
       */
      
-     public Customer(int id,String nama,int tanggal,int bulan,int tahun){
-         this.id = id;
+     public Customer(String nama,int tanggal,int bulan,int tahun){
+         DatabaseCustomer dc = new DatabaseCustomer();
+         id = dc.getLastCustomerID() + 1;
          this.nama = nama;
          dob = new Date(tahun,bulan,tanggal);
      
         }
         
-     public Customer(int yourId,String yourName,GregorianCalendar time){
-         yourId = id;
+     public Customer(String yourName,GregorianCalendar time){
+         DatabaseCustomer dc = new DatabaseCustomer();
+         id = dc.getLastCustomerID() + 1;
          yourName = nama;
          dob = new Date(time.get(Calendar.YEAR),time.get(Calendar.MONTH),time.get(Calendar.DATE));
          
@@ -109,14 +111,22 @@ public class Customer
        
      public String toString(){
         SimpleDateFormat format = new SimpleDateFormat("dd MMMM yyyy");
-
+        DatabasePesanan dp = new DatabasePesanan();
+        if(dp.getPesanan(id) != null){
         String print =  "\nCustomer ID    : "+id+
                         "\nName           : "+nama+
                         "\nE-Mail         : "+email+
-                        "\nDate of Birth  : "+format.format(this.dob)+".\n";
-        
+                        "\nDate of Birth  : "+format.format(this.dob)+
+                        "\n Booking order is in progress\n";
         return print;
+       }
+       else{
+           String print =  "\nCustomer ID    : "+id+
+                        "\nName           : "+nama+
+                        "\nE-Mail         : "+email+
+                        "\nDate of Birth  : "+format.format(this.dob)+
+                        "\n";
+           return print;
         }
-    }
-        
-
+    }    
+}

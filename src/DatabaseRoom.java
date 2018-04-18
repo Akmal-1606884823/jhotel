@@ -1,3 +1,5 @@
+ 
+
 
 /**
  * Write a description of class DatabaseRoom here.
@@ -19,7 +21,7 @@ public class DatabaseRoom
             int i;
             int w = 0;
             for(i=0;i<ROOM_DATABASE.size();i++){
-                if(ROOM_DATABASE.get(i).getNomorKamar()==baru.getNomorKamar()){
+                if(ROOM_DATABASE.get(i).getNomorKamar().equals(baru.getNomorKamar())){
                     w++;
                 }
             }
@@ -35,7 +37,7 @@ public class DatabaseRoom
         int i;
         int w = 0;
         for(i=0;i<ROOM_DATABASE.size();i++){
-            if(ROOM_DATABASE.get(i).getNomorKamar()==nomor_kamar){
+            if(ROOM_DATABASE.get(i).getNomorKamar().equals(nomor_kamar)){
                     return ROOM_DATABASE.get(i);
              }
          }
@@ -47,7 +49,7 @@ public class DatabaseRoom
         int i;
         int w = 0;
         for(i=0;i<ROOM_DATABASE.size();i++){
-            if(ROOM_DATABASE.get(i).gethotel()==hotel){
+            if(ROOM_DATABASE.get(i).gethotel().equals(hotel)){
                     listhotel.add(ROOM_DATABASE.get(i));
              }
          }
@@ -55,12 +57,26 @@ public class DatabaseRoom
     }
     
     public ArrayList<Room> getVacantRooms(){
-       
-        return ROOM_DATABASE;
+       ArrayList<Room> list_vacant = new ArrayList<Room>(); 
+        int i;
+        for(i=0;i<ROOM_DATABASE.size();i++){
+            if(ROOM_DATABASE.get(i).getStatusKamar().equals("Vacant")){
+                    list_vacant.add(ROOM_DATABASE.get(i));
+             }
+         }
+        return list_vacant;
     }
     
     public boolean removeRoom(Hotel hotel,String nomor_kamar){
-        
+        int i;
+        Administrasi a = new Administrasi();
+        for(i=0;i<ROOM_DATABASE.size();i++){
+            if(ROOM_DATABASE.get(i).getNomorKamar().equals(nomor_kamar)){
+                    a.pesananDibatalkan(ROOM_DATABASE.get(i));
+                    ROOM_DATABASE.remove(i);
+                    return true;
+             }
+         }
         return false;
     }
  
