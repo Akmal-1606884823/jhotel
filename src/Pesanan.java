@@ -25,7 +25,6 @@ public class Pesanan
      */
     public Pesanan (Customer pelanggan,double jumlahHari){
         this.jumlahHari =jumlahHari;
-        biaya = kamar.getDailyTariff() * jumlahHari;
         this.pelanggan = pelanggan;
         tanggalPesan = new Date();
         DatabasePesanan n = new DatabasePesanan();
@@ -177,13 +176,22 @@ public class Pesanan
         else{
             final_status = "SELESAI";
         }
-        
-        String print = " \nDibuat oleh : " +pelanggan.getNama() +
-                        "\nProses Booking untuk : "+kamar.gethotel() +
-                        "\nKamar Nomor : "+kamar.getNomorKamar() +
-                        "\nDengan Tipe kamar yang diinginkan : "+kamar.getTipeKamar() +
-                        "\nStatus : "+final_status+".\n" ;
-                        
+        String print;
+        if(kamar == null){
+            print = " \nDibuat oleh : " +pelanggan.getNama() +
+                    "\nProses Booking untuk : -"+
+                    "\nKamar Nomor : -" +
+                    "\nDengan Tipe kamar yang diinginkan : -" +
+                    "\nStatus : "+final_status+".\n" ;
+
+        }
+        else {
+             print = " \nDibuat oleh : " + pelanggan.getNama() +
+                    "\nProses Booking untuk : " + kamar.gethotel() +
+                    "\nKamar Nomor : " + kamar.getNomorKamar() +
+                    "\nDengan Tipe kamar yang diinginkan : " + kamar.getTipeKamar() +
+                    "\nStatus : " + final_status + ".\n";
+        }
         return print;
         
     }

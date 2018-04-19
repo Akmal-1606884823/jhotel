@@ -8,32 +8,31 @@
 import java.util.*;
 public class DatabaseHotel
 {
-   private ArrayList<Hotel> HOTEL_DATABASE; 
-   private int LAST_HOTEL_ID;
+   private static ArrayList<Hotel> HOTEL_DATABASE = new ArrayList<Hotel> ();
+   private static int LAST_HOTEL_ID = 0;
    
-   public ArrayList<Hotel> getHotelDatabase(){
+   public static ArrayList<Hotel> getHotelDatabase(){
       return HOTEL_DATABASE;
    }
     
-   public int getLastHotelID(){
-    int x = HOTEL_DATABASE.size();
-    int m = HOTEL_DATABASE.get(x-1).getID();
-    
-    return m;
-   } 
-   public boolean addHotel(Hotel baru){
+   public static int getLastHotelID(){
+    return LAST_HOTEL_ID;
+   }
+
+   public static boolean addHotel(Hotel baru) throws HotelSudahAdaException{
        int besar = HOTEL_DATABASE.size();
        int i= 0;
        int w= 0;
        
        for(i=0;i<besar;i++){
            
-               if(HOTEL_DATABASE.get(i).getID() == (baru.getID())){
+               if(HOTEL_DATABASE.get(i).getID() == (baru.getID()) || HOTEL_DATABASE.get(i).getLokasi().equals(baru.getLokasi())){
                    w++;
                 }
         }
        if (w>0){
            return false;
+           throw new HotelSudahAdaException(baru);
         }
        else{
        HOTEL_DATABASE.add(baru);
@@ -42,7 +41,7 @@ public class DatabaseHotel
       }
     }
     
-   public Hotel getHotel(int id){
+   public static Hotel getHotel(int id){
        int besar = HOTEL_DATABASE.size();
        int i= 0;
        int w= 0;
@@ -55,7 +54,7 @@ public class DatabaseHotel
         return null;
    }
     
-   public boolean removeHotel(int id){
+   public static boolean removeHotel(int id)throws HotelTidakDitemukanException{
        DatabaseRoom dr = new DatabaseRoom();
        int besar = HOTEL_DATABASE.size();
        int i= 0;
@@ -73,6 +72,7 @@ public class DatabaseHotel
         }
        
        return false;
+       throw new HotelTidakDitemukanException(id);
     }
    
    

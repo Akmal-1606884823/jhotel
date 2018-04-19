@@ -8,19 +8,16 @@
 import java.util.*;
 public class DatabasePesanan
 {
-    private ArrayList<Pesanan> PESANAN_DATABASE;
-    private int LAST_PESANAN_ID;
+    private static ArrayList<Pesanan> PESANAN_DATABASE = new ArrayList<Pesanan> ();
+    private static int LAST_PESANAN_ID;
     
-    public ArrayList<Pesanan> getPesananDatabase(){
+    public static ArrayList<Pesanan> getPesananDatabase(){
     
         return PESANAN_DATABASE;
     }
     
-    public int getLastPesananID(){
-        int x = PESANAN_DATABASE.size();
-        int m = PESANAN_DATABASE.get(x-1).getID();
-    
-        return m;
+    public static int getLastPesananID(){
+        return LAST_PESANAN_ID;
     }
     
     
@@ -28,7 +25,7 @@ public class DatabasePesanan
      * Menambah pesanan
      * @return Untuk status apakah true atau tidak
      */
-    public boolean addPesanan(Pesanan baru){
+    public static  boolean addPesanan(Pesanan baru) throws PesananSudahAdaException{
         
         int besar = PESANAN_DATABASE.size();
         int i= 0;
@@ -43,16 +40,17 @@ public class DatabasePesanan
         }
         if(w>0){
             return false;
-            
+            throw new PesananSudahAdaException(baru);
         }
         else{
             PESANAN_DATABASE.add(baru);
+            LAST_PESANAN_ID = baru.getID();
             return true;
         }
         
     }
     
-    public Pesanan getPesanan(int id){
+    public static Pesanan getPesanan(int id){
        int besar = PESANAN_DATABASE.size();
        int i= 0;
        int w= 0;
@@ -64,7 +62,7 @@ public class DatabasePesanan
         return null;
     }
     
-    public Pesanan getPesanan(Room kamar){
+    public static Pesanan getPesanan(Room kamar){
        int besar = PESANAN_DATABASE.size();
        int i= 0;
        for(i=0;i<besar;i++){
@@ -75,11 +73,11 @@ public class DatabasePesanan
         return null;
     }
     
-    public Pesanan getPesananAktif(){
+    public static Pesanan getPesananAktif(Customer pelanggan){
        int besar = PESANAN_DATABASE.size();
        int i= 0;
        for(i=0;i<besar;i++){
-             if(PESANAN_DATABASE.get(i).getStatusAktif() == true){
+             if(PESANAN_DATABASE.get(i).getStatusAktif() && PESANAN_DATABASE.get(i).getPelanggan().equals(pelanggan)){
                    return PESANAN_DATABASE.get(i);
                 }
         }
@@ -91,7 +89,7 @@ public class DatabasePesanan
      * @return Untuk status apakah true atau tidak
      */
 
-    public boolean removePesanan(Pesanan pesan){
+    public static  boolean removePesanan(Pesanan pesan) throws PesananTidakDitemukanException{
        int i= 0;
        for(i=0;i<PESANAN_DATABASE.size();i++){
              if(PESANAN_DATABASE.get(i).equals(pesan)){
@@ -110,7 +108,7 @@ public class DatabasePesanan
         }
     
         return false;
-    
+        throw new PesananTidakDitemukanException(pesan.getPelanggan());
     }
     
     /**
@@ -119,19 +117,5 @@ public class DatabasePesanan
      * @param cust untuk menerima informasi customer
      */
 
-    public Pesanan getPesanan(Customer cust){
-    
-       return null; 
-    }
-    
-     /**
-     * Menunjukkan database pesanan
-     * @return Untuk menampilkan databasepesanan
-     */
-    
-    
-    public void pesananDibatalkan (Pesanan pesan){
-    
 
-    }
 }

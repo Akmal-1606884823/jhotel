@@ -7,7 +7,7 @@
  */
 public class Administrasi
 {
-   public void pesananDitugaskan(Pesanan pesan,Room kamar){
+   public static void pesananDitugaskan(Pesanan pesan,Room kamar){
        pesan.setStatusSelesai(false);
        pesan.setStatusDiproses(true);
        pesan.setRoom(kamar);
@@ -16,17 +16,17 @@ public class Administrasi
        
     }
    
-   public void roomAmbilPesanan(Pesanan pesan,Room kamar){
+   public static void roomAmbilPesanan(Pesanan pesan,Room kamar){
        kamar.setStatusKamar(StatusKamar.Booked);
        
     }
    
-   public void roomLepasPesanan(Room kamar){
+   public static void roomLepasPesanan(Room kamar){
        kamar.setStatusKamar(StatusKamar.Vacant);
     
     }
    
-   public void pesananDibatalkan(Room kamar){
+   public static void pesananDibatalkan(Room kamar){
        DatabasePesanan dp = new DatabasePesanan();
        dp.getPesanan(kamar.gethotel().getID()).setStatusSelesai(false);
        dp.getPesanan(kamar.gethotel().getID()).setStatusDiproses(false);
@@ -37,7 +37,7 @@ public class Administrasi
     
     }
    
-   public void pesananSelesai(Room kamar){
+   public static void pesananSelesai(Room kamar){
        DatabasePesanan dp = new DatabasePesanan();
        dp.getPesanan(kamar.gethotel().getID()).setStatusDiproses(false);
        dp.getPesanan(kamar.gethotel().getID()).setStatusSelesai(true);
@@ -48,7 +48,7 @@ public class Administrasi
        
    }
    
-   public void pesananDibatalkan(Pesanan pesan){
+   public static void pesananDibatalkan(Pesanan pesan){
        roomLepasPesanan(pesan.getRoom());
        
        pesan.setStatusSelesai(false);
@@ -57,7 +57,7 @@ public class Administrasi
        
     }
    
-   public void pesananSelesai(Pesanan pesan){
+   public static void pesananSelesai(Pesanan pesan){
        roomLepasPesanan(pesan.getRoom());
        
        pesan.setStatusSelesai(true);

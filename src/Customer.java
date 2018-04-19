@@ -23,20 +23,21 @@ public class Customer
       * Constructor untuk Customer
       */
      
-     public Customer(String nama,int tanggal,int bulan,int tahun){
+     public Customer(String nama,int tanggal,int bulan,int tahun,String ema){
          DatabaseCustomer dc = new DatabaseCustomer();
          id = dc.getLastCustomerID() + 1;
          this.nama = nama;
          dob = new Date(tahun,bulan,tanggal);
+         setEmail(ema);
      
         }
         
-     public Customer(String yourName,GregorianCalendar time){
+     public Customer(String yourName,GregorianCalendar time,String ema){
          DatabaseCustomer dc = new DatabaseCustomer();
          id = dc.getLastCustomerID() + 1;
          yourName = nama;
          dob = new Date(time.get(Calendar.YEAR),time.get(Calendar.MONTH),time.get(Calendar.DATE));
-         
+         setEmail(ema);
         }
         
         
@@ -111,8 +112,7 @@ public class Customer
        
      public String toString(){
         SimpleDateFormat format = new SimpleDateFormat("dd MMMM yyyy");
-        DatabasePesanan dp = new DatabasePesanan();
-        if(dp.getPesanan(id) != null){
+        if(DatabasePesanan.getPesanan(id) != null){
         String print =  "\nCustomer ID    : "+id+
                         "\nName           : "+nama+
                         "\nE-Mail         : "+email+

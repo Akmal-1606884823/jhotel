@@ -1,56 +1,45 @@
 public class Jhotel
 {
     public static void main(String[] args){
-        /*
-        Lokasi l = new Lokasi (12,13,"Pantai");
-        Hotel h = new Hotel ("akmal",l,12);
-        Customer c = new Customer (15,"Alaska");
-        Room s = new SingleRoom(h,"45",true,StatusKamar.Vacant);
-        Pesanan p = new Pesanan (c,s);
-        Administrasi a = new Administrasi();
-        
-        l.printData();
-        c.printData();
-        h.printData();
-        
-        a.pesananDitugaskan(p,s);
-        
-        s.printData();
-        p.printData();
-        
-        if(s instanceof DoubleRoom){
-            System.out.println("Benar Double Room");
-        }
-        
-        else if (s instanceof SingleRoom){
-            System.out.println("Salah, Bukan Double Room");
-        }
-        
-        
-        Room w = new DoubleRoom(h,"98",true,StatusKamar.Booked);
-        w.setDailyTariff(15);
-        Pesanan wa = new Pesanan (c,s);
-        wa.setJumlahHari(12);
-        
-        
-        a.pesananDitugaskan(wa,w);
-        wa.setBiaya();
-        
-        w.printData();
-        wa.printData();
-        
-        if(w instanceof DoubleRoom){
-            System.out.println("Benar Double Room");
-        }
-        
-        else if (w instanceof SingleRoom){
-            System.out.println("Salah, Bukan Double Room");
-        }
-        */
-      
-       Hotel h = new Hotel("Nice",null,88);
 
-       System.out.println("Test print");
+        DatabaseCustomer.addCustomer(new Customer("A",2,3,2003,"Akm@w.com"));
+        DatabaseCustomer.addCustomer(new Customer("B",2,4,2003,"Akm@w.com"));
+        DatabaseCustomer.addCustomer(new Customer("B",2,4,2003,"Akm@w.com"));
+
+        DatabaseHotel.addHotel(new Hotel("N",new Lokasi(3,2,"HG"),87));
+        DatabaseHotel.addHotel(new Hotel("ty",new Lokasi(4,2,"hh"),33));
+        DatabaseHotel.addHotel(new Hotel("N",new Lokasi(3,2,"HG"),87));
+        DatabaseHotel.addHotel(new Hotel("N",new Lokasi(3,2,"HG"),82));
+
+        DatabaseRoom.addRoom(new SingleRoom(DatabaseHotel.getHotel(1),"12",true,StatusKamar.Vacant));
+        DatabaseRoom.addRoom(new DoubleRoom(DatabaseHotel.getHotel(2), "34", StatusKamar.Vacant));
+        DatabaseRoom.addRoom(new SingleRoom(DatabaseHotel.getHotel(1),"12",true,StatusKamar.Vacant));
+        DatabaseRoom.addRoom(new DoubleRoom(DatabaseHotel.getHotel(2), "34", StatusKamar.Vacant));
+
+        DatabasePesanan.addPesanan(new Pesanan(DatabaseCustomer.getCustomer(1),2.3));
+        DatabasePesanan.addPesanan(new Pesanan(DatabaseCustomer.getCustomer(2),3.3));
+        DatabasePesanan.addPesanan(new Pesanan(DatabaseCustomer.getCustomer(1),2.3));
+
+        for (Customer pelanggan : DatabaseCustomer.getCustomerDatabase()){
+            System.out.println(pelanggan);
+        }
+
+        for(Hotel hote : DatabaseHotel.getHotelDatabase()){
+            System.out.println(hote);
+        }
+        for(Room roo : DatabaseRoom.getRoomDatabase()){
+            System.out.println(roo);
+        }
+        for(Pesanan pes : DatabasePesanan.getPesananDatabase()){
+            System.out.println(pes);
+        }
+
+        Administrasi.pesananDitugaskan(DatabasePesanan.getPesanan(1),DatabaseRoom.getRoom(DatabaseHotel.getHotel(1),"12"));
+        Administrasi.pesananDitugaskan(DatabasePesanan.getPesanan(2),DatabaseRoom.getRoom(DatabaseHotel.getHotel(2),"34"));
+
+        for(Pesanan pes : DatabasePesanan.getPesananDatabase()){
+            System.out.println(pes);
+        }
 
     }
     public Jhotel(){

@@ -10,13 +10,13 @@
 import java.util.*;
 public class DatabaseRoom
 {
-    private ArrayList<Room> ROOM_DATABASE;
+    private static ArrayList<Room> ROOM_DATABASE = new ArrayList<Room> ();
     
-    public ArrayList<Room> getRoomDatabase(){
+    public static ArrayList<Room> getRoomDatabase(){
         return ROOM_DATABASE;
     }
     
-    public boolean addRoom(Room baru){
+    public static boolean addRoom(Room baru) throws RoomSudahAdaException{
         if(baru.gethotel() != null){
             int i;
             int w = 0;
@@ -31,9 +31,10 @@ public class DatabaseRoom
             }
         }
         return false;
+        throw new RoomSudahAdaException(baru);
     }
     
-    public Room getRoom(Hotel hotel,String nomor_kamar){
+    public static Room getRoom(Hotel hotel,String nomor_kamar){
         int i;
         int w = 0;
         for(i=0;i<ROOM_DATABASE.size();i++){
@@ -44,7 +45,7 @@ public class DatabaseRoom
         return null;
     }
     
-    public ArrayList<Room> getRoomFromHotel(Hotel hotel){
+    public static ArrayList<Room> getRoomFromHotel(Hotel hotel){
         ArrayList<Room> listhotel = new ArrayList<Room>(); 
         int i;
         int w = 0;
@@ -56,7 +57,7 @@ public class DatabaseRoom
          return listhotel;
     }
     
-    public ArrayList<Room> getVacantRooms(){
+    public static ArrayList<Room> getVacantRooms(){
        ArrayList<Room> list_vacant = new ArrayList<Room>(); 
         int i;
         for(i=0;i<ROOM_DATABASE.size();i++){
@@ -67,7 +68,7 @@ public class DatabaseRoom
         return list_vacant;
     }
     
-    public boolean removeRoom(Hotel hotel,String nomor_kamar){
+    public static boolean removeRoom(Hotel hotel,String nomor_kamar)throws RoomTidakDitemukanException{
         int i;
         Administrasi a = new Administrasi();
         for(i=0;i<ROOM_DATABASE.size();i++){
@@ -78,6 +79,7 @@ public class DatabaseRoom
              }
          }
         return false;
+        throw new RoomTidakDitemukanException(hotel,nomor_kamar);
     }
  
 }

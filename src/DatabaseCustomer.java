@@ -8,18 +8,15 @@
 import java.util.*;
 public class DatabaseCustomer
 {
-   private ArrayList<Customer> CUSTOMER_DATABASE; 
-   private int LAST_CUSTOMER_ID = 0;
+   private static ArrayList<Customer> CUSTOMER_DATABASE = new ArrayList<Customer>();
+   private static int LAST_CUSTOMER_ID = 0;
    
-   public ArrayList<Customer> getCustomerDatabase(){
+   public static ArrayList<Customer> getCustomerDatabase(){
       return CUSTOMER_DATABASE;
    }
    
-   public int getLastCustomerID(){
-    int x = CUSTOMER_DATABASE.size();
-    int m = CUSTOMER_DATABASE.get(x-1).getid();
-    
-    return m;
+   public static int getLastCustomerID(){
+    return LAST_CUSTOMER_ID;
    } 
    
    /**
@@ -28,11 +25,11 @@ public class DatabaseCustomer
      * @return Status Customer baru
      */
    
-   public boolean addCustomer(Customer baru){
+   public static boolean addCustomer(Customer baru) throws PelangganSudahAdaException{
        int i;
        int w = 0;
         for(i=0;i<CUSTOMER_DATABASE.size();i++){
-           if(CUSTOMER_DATABASE.get(i).getid() == baru.getid()){
+           if(CUSTOMER_DATABASE.get(i).getid() == baru.getid()  || CUSTOMER_DATABASE.get(i).getEmail().equals(baru.getEmail())){
                     w++;
                 }
          }
@@ -41,9 +38,9 @@ public class DatabaseCustomer
             LAST_CUSTOMER_ID = baru.getid();
             return true;
         } 
-       
-       return false;
-    
+            try {
+                return false;
+            }catch (PelangganSudahAdaException)
     }
     
     /**
@@ -52,7 +49,7 @@ public class DatabaseCustomer
      * @return Status penghapusan
      */
     
-   public Customer getCustomer(int id){
+   public static Customer getCustomer(int id){
        int i;
         for(i=0;i<CUSTOMER_DATABASE.size();i++){
            if(CUSTOMER_DATABASE.get(i).getid() == id){
@@ -68,7 +65,7 @@ public class DatabaseCustomer
      * @return String Menunjukkan nama customer
      */
 
-   public boolean removeCustomer(int id){
+   public static boolean removeCustomer(int id) throws PesananTidakDitemukanException{
        int i;
        DatabasePesanan dp = new DatabasePesanan();
         for(i=0;i<CUSTOMER_DATABASE.size();i++){
@@ -78,6 +75,8 @@ public class DatabaseCustomer
                return true;
             }
          }
-       return false ;
+         try {
+             return false;
+         }catch (PesananTidakDitemukanException a){}
     }
 }
